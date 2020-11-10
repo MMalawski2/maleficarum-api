@@ -47,7 +47,7 @@ class Initializer {
         if (in_array($environment, ['local', 'development', 'staging'])) {
             \Maleficarum\Handler\AbstractHandler::setDebugLevel(\Maleficarum\Handler\AbstractHandler::DEBUG_LEVEL_FULL);
             ini_set('display_errors', '1');
-        } elseif ('uat' === $environment) {
+        } elseif (stripos($environment, 'uat') === 0) {
             \Maleficarum\Handler\AbstractHandler::setDebugLevel(\Maleficarum\Handler\AbstractHandler::DEBUG_LEVEL_LIMITED);
             ini_set('display_errors', '0');
         } elseif ('production' === $environment) {
